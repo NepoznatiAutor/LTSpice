@@ -1,0 +1,51 @@
+* Z:\z\--mega--\converter-designs\bla\bla.asc
+L1 i+ p+ {Zo/2/pi/fo} Rser={RLs}
+C1 i- p- {1/Zo/2/pi/fo} Rpar=1meg
+Dr1 o+ N001 D
+Dr3 0 o- D
+Dr2 o- N001 D
+Dr4 0 o+ D
+Vout N001 0 {Vout}
+Rs2 i- s3 {Rshort}
+Rs1 s1 i+ {Rshort}
+C2 o+ o- 100p Rser=10 Rpar=1meg
+M1 in g1 s1 s1 SPA11N60C3
+Vg1 drv1 s1 PULSE({Vgn} {Vgp} {0.0/fs} 1n 1n {0.5/fs-dt} {1/fs})
+Rg1 g1 drv1 {Rg}
+Rg2 g2 drv2 {Rg}
+Vin in 0 {Vin}
+Cin in 0 1u
+M2 s1 g2 s2 s2 SPA11N60C3
+Rpd1 g1 s1 10k
+Rpd2 g2 s2 10k
+M3 in g3 s3 s3 SPA11N60C3
+Rg3 g3 drv3 {Rg}
+Rg4 g4 drv4 {Rg}
+M4 s3 g4 s4 s4 SPA11N60C3
+Rpd3 g3 s3 10k
+Rpd4 g4 s4 10k
+Rs3 0 s2 {Rshort}
+Rs4 0 s4 {Rshort}
+Dg1 g1 N002 D
+Dg3 g3 N004 D
+Dg2 g2 N003 D
+Dg4 g4 N005 D
+Rgoff1 N002 drv1 {Rgoff}
+Rgoff2 N003 drv2 {Rgoff}
+Rgoff3 N004 drv3 {Rgoff}
+Rgoff4 N005 drv4 {Rgoff}
+Vg2 drv2 s2 PULSE({Vgn} {Vgp} {0.5/fs} 1n 1n {0.5/fs-dt} {1/fs})
+Vg3 drv3 s3 PULSE({Vgn} {Vgp} {0.5/fs} 1n 1n {0.5/fs-dt} {1/fs})
+Vg4 drv4 s4 PULSE({Vgn} {Vgp} {0.0/fs} 1n 1n {0.5/fs-dt} {1/fs})
+Ltx1 p- p+ {Ltx1}
+Ltx2 o- o+ {Ltx2}
+.model D D
+.lib C:\users\alucard\My Documents\LTspiceXVII\lib\cmp\standard.dio
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\users\alucard\My Documents\LTspiceXVII\lib\cmp\standard.mos
+.tran 0 {40.2u+2/fs} 40.2u 100n uic
+.include bla.txt
+k Ltx1 Ltx2 1
+.backanno
+.end

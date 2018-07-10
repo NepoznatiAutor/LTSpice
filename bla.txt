@@ -1,0 +1,21 @@
+.param fo 1600000.0
+.param fs 2000000.0
+.param dt 2e-08
+.param Zo 10
+.param Vin 250
+.param Vout 24
+.param n 9
+.param Vgp 10
+.param Vgn 0
+.param Rg 5
+.param Rgoff 1
+.param Rshort 1e-06
+.param RLs 0.121803398875
+.param Ztx 10000
+.param Ltx1 0.0009947183943243459
+.param Ltx2 1.228047400400427e-05
+.meas pin avg -V(in)*I(Vin)
+.meas pout avg abs(V(o+,o-))*I(Vout)
+.meas psw avg V(in,s1)*Id(M1)+V(drv1,s1)*Ig(M1) +                                                                      V(s1,s2)*Id(M2)+V(drv2,s2)*Ig(M2) +                                                                      V(in,s3)*Id(M3)+V(drv3,s3)*Ig(M3) +                                                                      V(s3,s4)*Id(M4)+V(drv4,s4)*Ig(M4)
+.meas pind avg V(i+,o+)*I(L1)
+.meas vcpp pp V(o-,i-)
